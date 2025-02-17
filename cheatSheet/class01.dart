@@ -60,6 +60,7 @@ void main(List<String> arguments) {
   List<String> names = fullName.split(" ");
   names[0] = names[0].replaceAll(names[0], "Hafrún");
   print(names.toString());
+  //ennþá að vinna í þessu 
 
   /*
     5. Display the following SSN on the correct Format:
