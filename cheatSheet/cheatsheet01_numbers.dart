@@ -41,6 +41,5 @@ void main(List<String> arguments){
   username = username.toLowerCase();
   print(username);
   String emailAddress = username + "@" + url;
-  email 
   print(emailAddress);
 }
