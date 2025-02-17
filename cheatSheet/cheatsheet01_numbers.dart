@@ -39,7 +39,6 @@ void main(List<String> arguments){
 
   String username = names[0] + names[1].substring(0,1) + lastName.substring(0,3);
   username = username.toLowerCase();
-  print(username);
   String emailAddress = username + "@" + url;
 
   print(removeIcelandicLetters(emailAddress));
