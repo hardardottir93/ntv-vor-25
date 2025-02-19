@@ -3,15 +3,13 @@ import 'dart:convert';
 import 'dart:io';
 
 void main(List<String> arguments) {
-  /*
-    0. Create a personal message. Use a variable to represent a person's name, and print a
+
+  /*  0. Create a personal message. Use a variable to represent a person's name, and print a
     message to that person. Your message should be simple, such as 'Good morning
     Hjörtur, would you like to learn Dart strings today?'
-    Store Message and Name in seperate variable.
+    Store Message and Name in seperate variable. */
 
-
-  print("Hvað heitirðu?");
-  String name = stdin.readLineSync(encoding: utf8).toString();
+  String name = "Gunnar";
   print("Góðan daginn $name, ertu til í að læra Dart með mér í dag?");
 
   /* 1. Find a quote from a famous person you admire. Print the quote and the name of its
@@ -32,7 +30,7 @@ void main(List<String> arguments) {
 
   String message = "Velkomin!";
   print(message);
-  message = message.replaceAll(message, "Bless!");
+  message = "Bless!";
   print(message);
 
   /*
@@ -42,7 +40,7 @@ void main(List<String> arguments) {
   String NureseryRyhme = "Eena, meena, mina, mo, Catch a mouse by the toe; If he squeals let him go, Eeena, meena, mina, mo.";
   NureseryRyhme = NureseryRyhme.replaceAll(" ", "");
   print(NureseryRyhme);
-*/
+
   /*
    4. Prompt a user for their full name (first name and last name)
     1. Store the users entry.
@@ -52,18 +50,20 @@ void main(List<String> arguments) {
     first letter, and the other letters being lowercase.
    */
 
-  print("Hvað heitirðu fullu nafni?");
-  String fullName = stdin.readLineSync(encoding: utf8).toString();
+  print("Enter first name:");
+  String firstName = stdin.readLineSync(encoding: utf8).toString();
+  print("Enter last name:");
+  String lastName = stdin.readLineSync(encoding: utf8).toString();
+  String fullName = "$firstName $lastName";
+
   print(fullName.toUpperCase());
 
-  List<String> names = fullName.split(" ");
-  names[0] = names[0].replaceAll(names[0], "Hafrún");
+  firstName = "Hafrún";
 
-
-  fullName = names.join(" ");
+  fullName = firstName.substring(0,1).toUpperCase() + firstName.substring(1,firstName.length) + " " +
+              lastName.substring(0,1).toUpperCase()+lastName.substring(1,lastName.length);
   print(fullName);
 
-  //ennþá að vinna í þessu
 
   /*
     5. Display the following SSN on the correct Format:
@@ -73,17 +73,18 @@ void main(List<String> arguments) {
   String SSN2 = "200689 2409";
   String SSN3 = "2 006 8924 09";
 
-  print(fixSSN(SSN1));
-  print(fixSSN(SSN2));
-  print(fixSSN(SSN3));
+
+  String fixedSSN = SSN1.replaceAll("-","");
+  print(fixedSSN);
+
+  fixedSSN = SSN2.replaceAll(" ","");
+  print(fixedSSN);
+
+  fixedSSN = SSN3.replaceAll(" ","");
+  print(fixedSSN);
+  
   /*
   Bónus task calculate the age from the SSN.
    */
 
-}
-
-int fixSSN(String SSN){
-  String fixedSSN = SSN.replaceAll(" ","");
-  fixedSSN = fixedSSN.replaceAll("-", "");
-  return int.parse(fixedSSN);
 }
