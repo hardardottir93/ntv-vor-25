@@ -8,7 +8,7 @@ void main(List<String> arguments) {
     message to that person. Your message should be simple, such as 'Good morning
     Hjörtur, would you like to learn Dart strings today?'
     Store Message and Name in seperate variable.
-   */
+
 
   print("Hvað heitirðu?");
   String name = stdin.readLineSync(encoding: utf8).toString();
@@ -42,7 +42,7 @@ void main(List<String> arguments) {
   String NureseryRyhme = "Eena, meena, mina, mo, Catch a mouse by the toe; If he squeals let him go, Eeena, meena, mina, mo.";
   NureseryRyhme = NureseryRyhme.replaceAll(" ", "");
   print(NureseryRyhme);
-
+*/
   /*
    4. Prompt a user for their full name (first name and last name)
     1. Store the users entry.
@@ -54,12 +54,15 @@ void main(List<String> arguments) {
 
   print("Hvað heitirðu fullu nafni?");
   String fullName = stdin.readLineSync(encoding: utf8).toString();
-  fullName = fullName.toUpperCase();
-  print(fullName);
+  print(fullName.toUpperCase());
 
   List<String> names = fullName.split(" ");
   names[0] = names[0].replaceAll(names[0], "Hafrún");
-  print(names.toString());
+
+
+  fullName = names.join(" ");
+  print(fullName);
+
   //ennþá að vinna í þessu
 
   /*
@@ -69,7 +72,18 @@ void main(List<String> arguments) {
   String SSN1 = "200689-2409";
   String SSN2 = "200689 2409";
   String SSN3 = "2 006 8924 09";
+
+  print(fixSSN(SSN1));
+  print(fixSSN(SSN2));
+  print(fixSSN(SSN3));
   /*
   Bónus task calculate the age from the SSN.
    */
+
+}
+
+int fixSSN(String SSN){
+  String fixedSSN = SSN.replaceAll(" ","");
+  fixedSSN = fixedSSN.replaceAll("-", "");
+  return int.parse(fixedSSN);
 }
