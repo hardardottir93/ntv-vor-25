@@ -2,32 +2,27 @@ import 'dart:io';
 import 'dart:math';
 
 void main(List<String> arguments){
-  int randomNum = Random().nextInt(100);
-  print('Giskaðu á tölu á milli 1-100');
-  String number = stdin.readLineSync().toString();
-  int? numberInt = int.tryParse(number);
+  int randomNum = Random().nextInt(100) +1;
   int count = 0;
   bool status = true;
+  print('Giskaðu á tölu á milli 1-100');
 
-  if(numberInt is int && numberInt <= 100) {
-    int guess = numberInt;
-    while (status) {
+  while (status) {
+    String number = stdin.readLineSync().toString();
+    int? guess = int.tryParse(number);
+    if (guess is int && guess <= 100) {
       if (randomNum < guess) {
         print('Talan er lægri!');
-        number = stdin.readLineSync().toString();
-        guess = int.parse(number);
       } else if (randomNum > guess) {
         print('Talan er hærri!');
-        number = stdin.readLineSync().toString();
-        guess = int.parse(number);
       } else if (randomNum == guess) {
         print('RÉTT!');
         status = false;
       }
       count++;
+    } else {
+      print('Ég bað um tölu á milli 1-100 \nReyndu aftur!');
     }
-    print('Þú giskaðir $count sinnum.');
-  } else {
-    print('Hey, ég bað um tölu á milli 1-100');
   }
+  print('Þú giskaðir $count sinnum.');
 }
