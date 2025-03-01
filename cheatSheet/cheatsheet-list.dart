@@ -1,6 +1,6 @@
 void main(){
   // Create a list
-  List names = ['John', 'Hjalti', 'Gunnar'];
+  /*List names = ['John', 'Hjalti', 'Gunnar'];
 
   // Change item in list
   names[1] = 'Jón';
@@ -28,5 +28,23 @@ void main(){
   // Remove at - bara einn Bjarni á x stað
   names.removeAt(0);
   print(names);
-  
+  */
+
+
+  List nums = [5,4,3,3,1,9,8,7,6];
+  List chars = ['a','b','c','h','t','d'];
+
+  // Sort the list
+  print(chars);
+  nums.sort();
+  print(nums);
+
+  // Remove between 2 indexes
+  nums.removeRange(2, 6);
+  print(nums);
+
+  // Remove last
+  nums.removeLast();
+  print(nums);
+
 }
