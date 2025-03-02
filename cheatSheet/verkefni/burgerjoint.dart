@@ -8,7 +8,7 @@ void main() {
   //Prenta matseðil:
   print('Hér er matseðillinn okkar:');
   for (int i = 0 ; i < menu.length ; i++) {
-      print((i+1).toString() + '. ' + menu[i][0]+ ' - ' + menu[i][1].toString() + ' kr.');
+      print('${'${i+1}. ${menu[i][0]}'} - ${menu[i][1]} kr.');
   }
 
   String orderText = '\nVinsamlegast veldu númer á réttinu sem þú vilt bæta við pöntunina (eða skrifaðu "exit" til að hætta!)';
@@ -16,26 +16,31 @@ void main() {
 
   List order = [];
   bool ordering = true;
-  int inputInt = 0;
 
   while(ordering) {
     String input = stdin.readLineSync().toString();
+    int? inputInt = int.tryParse(input);
+    int? sum = 0;
     if (input == 'exit') {
-      print('Hætta');
+      print('Þakka þér fyrir að panta! Hér er pöntunin þín:');
+      for (int i = 0 ; i < order.length ; i++) {
+        sum = (sum! + (order[i][1])) as int?;
+        print('${'${i+1}. ${order[i][0]}'} - ${order[i][1]} kr.');
+      }
+      print('Samtals: $sum kr.');
       ordering = false;
-    } else if (input is String){
-
     }
+    else if (inputInt == null) {
+        print('Vinsamlegast veldu númer á matseðlinum eða skrifaðu exit til að hætta.');
+    }
+    else if (inputInt > 0 && inputInt <= menu.length ){
 
-    inputInt = int.tryParse(input)!;
-
-    if (inputInt > 0 && inputInt <= menu.length ){
+      print(menu[inputInt-1][0] + ' hefur verið bætt við pöntunina þína.\n');
       order.add(menu[inputInt-1]);
-      int? sum = 0;
       print('Þín pöntun:');
       for (int i = 0 ; i < order.length ; i++) {
         sum = (sum! + (order[i][1])) as int?;
-        print((i+1).toString() + '. ' + order[i][0]+ ' - ' + order[i][1].toString() + ' kr.');
+        print('${'${i+1}. ${order[i][0]}'} - ${order[i][1]} kr.');
       }
       print('Samtals: $sum kr.');
     } else {
