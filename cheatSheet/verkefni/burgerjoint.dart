@@ -17,9 +17,10 @@ void main() {
   List order = [];
   bool ordering = true;
 
+  //Á meðan pöntun er í gangi:
   while(ordering) {
-    String input = stdin.readLineSync().toString();
-    int? inputInt = int.tryParse(input);
+    String? input = stdin.readLineSync();
+    int? inputInt = int.tryParse(input!);
     int? sum = 0;
     if (input == 'exit') {
       print('Þakka þér fyrir að panta! Hér er pöntunin þín:');
@@ -34,14 +35,15 @@ void main() {
         print('Vinsamlegast veldu númer á matseðlinum eða skrifaðu exit til að hætta.');
     }
     else if (inputInt > 0 && inputInt <= menu.length ){
-
       print(menu[inputInt-1][0] + ' hefur verið bætt við pöntunina þína.\n');
       order.add(menu[inputInt-1]);
+
       print('Þín pöntun:');
       for (int i = 0 ; i < order.length ; i++) {
         sum = (sum! + (order[i][1])) as int?;
         print('${'${i+1}. ${order[i][0]}'} - ${order[i][1]} kr.');
       }
+
       print('Samtals: $sum kr.');
     } else {
       print('Vinsamlegast veldu númer á matseðlinum eða skrifaðu exit til að hætta.');
