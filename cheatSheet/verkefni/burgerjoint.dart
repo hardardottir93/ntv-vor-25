@@ -10,8 +10,8 @@ void main() {
   for (int i = 0 ; i < menu.length ; i++) {
       print('${'${i+1}. ${menu[i][0]}'} - ${menu[i][1]} kr.');
   }
-String addOrRemove = '\n Skrifaðu "add" ef þú vilt bæta við pöntun og "remove" ef þú vilt eyða úr pöntun.';
-  String orderText = '\nVinsamlegast veldu númer á réttinu sem þú vilt bæta við pöntunina (eða skrifaðu "exit" til að hætta!)';
+  String addOrRemove = '\n Skrifaðu "add" ef þú vilt bæta við pöntun og "remove" ef þú vilt eyða úr pöntun.';
+  String orderText = '\n Vinsamlegast skrifaðu "add" ef þú vilt bæta við rétti eða "remove" ef þú vilt eyða út rétt!)';
   print(orderText);
 
   List order = [];
