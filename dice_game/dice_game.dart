@@ -26,9 +26,10 @@ void main() {
         List<Dice> player2Dices = [dice3, dice4];
 
         for (int i = 0; i < roundsInt; i++) {
-          print('\n====== Round ${i + 1} ======');
+          stdout.write('\n====== Round ${i + 1} ======');
           player1.rollDices(player1Dices);
           player2.rollDices(player2Dices);
+          print('\n${player1.name} ${player1.score} - ${player2.score} ${player2.name}');
         }
 
         print('\n====== RESULTS ======');

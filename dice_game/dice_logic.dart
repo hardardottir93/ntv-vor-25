@@ -1,7 +1,8 @@
 import 'dart:core';
+import 'dart:io';
 import 'dart:math';
 
-//
+//Dice hlutur sem inniheldur fjölda hliða og fall sem skilar random kasti
 class Dice {
   int diceSides = 6;
 
@@ -27,10 +28,11 @@ class Player {
   //Skilar engu en uppfærir Score hjá Player.
   void rollDices(List<Dice> dices) {
     int roll = 0;
+    stdout.write('\n$name rolled');
     for(int i = 0 ; i < dices.length ; i++) {
       roll = dices[i].rollDice(dices[i]);
+      stdout.write(' $roll');
       score = score+roll;
     }
-    print('$name has $score points.');
   }
 }
