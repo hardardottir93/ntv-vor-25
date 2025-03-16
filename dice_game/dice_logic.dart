@@ -1,6 +1,7 @@
 import 'dart:core';
 import 'dart:math';
 
+//
 class Dice {
   int diceSides = 6;
 
@@ -9,12 +10,13 @@ class Dice {
   });
 
   int rollDice(Dice dice) {
-    return Random().nextInt(this.diceSides) +1;
+    return Random().nextInt(diceSides) +1;
   }
 }
 
+//Player hlutur sem inniheldur nafn og stig
 class Player {
-  String name = '';
+  String name;
   int score = 0;
 
   Player({
@@ -25,9 +27,10 @@ class Player {
   //Skilar engu en uppfærir Score hjá Player.
   void rollDices(List<Dice> dices) {
     int roll = 0;
-    for(int i = 0 ; i<dices.length ; i++) {
+    for(int i = 0 ; i < dices.length ; i++) {
       roll = dices[i].rollDice(dices[i]);
-      this.score = this.score+roll;
+      score = score+roll;
     }
+    print('$name has $score points.');
   }
 }
